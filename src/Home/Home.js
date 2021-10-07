@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import AppBar from '../siddanth/AppBar';
+// import AppBar from './siddanth/AppBar';
 import UploadQuestion from '../srikanth/UploadQuestion';
 function Home() {
 
@@ -20,7 +20,6 @@ function Home() {
 
     return (
         <div>
-            <AppBar />
             <UploadQuestion  updateState={updateState}/>
         </div>
     )

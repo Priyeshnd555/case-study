@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../logo.png";
-import { SearchIcon } from "@mui/icons-material/Search";
+// import logo from "./logo.png";
+// import { SearchIcon } from "@mui/icons-material/Search";
 import {
   BrowserRouter as Router,
   Route,
@@ -23,13 +23,13 @@ import Button from "@restart/ui/esm/Button";
 import "./Appbar.css";
 // import Date1 from '@mui/icons-material'
 
-function Appbar() {
+function Appbars() {
   return (
     <div>
       <Navbar bg="light" expand="lg">
         <Container fluid>
           <Link to="/" className="homeLink">
-            <img src={logo} id="image" alt="logo" />
+            {/* <img src={logo} id="image" alt="logo" /> */}TESTYANTRA
           </Link>
 
           {/* <Navbar.Brand href="#">Navbar scroll</Navbar.Brand> */}
@@ -97,4 +97,4 @@ function Appbar() {
   );
 }
 
-export default Appbar;
+export default Appbars;

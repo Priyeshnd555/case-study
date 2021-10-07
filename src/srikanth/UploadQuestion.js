@@ -1,4 +1,7 @@
 import { AddCircleRounded } from "@material-ui/icons";
+
+
+
 import {
   Autocomplete,
   Button,
@@ -12,7 +15,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Modals from "../kavitha/Modals";
 import "./Upload.css";
 function UploadQuestion() {
@@ -25,13 +28,49 @@ function UploadQuestion() {
     Question: "",
     Answer: "",
   });
-  const [questions, setQuestions] = useState([
+  const [questions, setquestions] = useState([
     {
       Question: "",
       Answer: "",
       DifficultyLevel: "",
     },
   ]);
+
+  useEffect(() => {
+    
+   
+      console.log('useEffect',questions)
+    
+  }, [questions])
+ 
+  const updateObj=(event,index)=>{
+    const objCopy = {...questions[index]}
+    objCopy[event.target.name] = event.target.value;
+    console.log(`updated objCopy ${index}`,objCopy)
+    setquestions(objCopy)
+
+  }
+
+
+  const updatenewObj=()=>{
+    const objCopys =[...questions]
+    objCopys.push({
+      Question: "",
+      Answer: "",
+      DifficultyLevel: "",
+    })
+    console.log(`new object updated to questions `,objCopys);
+    setquestions(objCopys)
+
+
+  }
+
+  const deleteObj=(index)=>{
+    const objCopy =[...questions];
+    objCopy.splice(index,1)
+    setquestions(objCopy)
+
+  }
   //Destructuring
   // const {CandidateName,Department,ClientName,InterviewLevel,Technology}=UploadData
   //Data to be shown in dropdown
@@ -54,7 +93,7 @@ function UploadQuestion() {
     <div>
       <Paper>
         <Container>
-          <h1>Upload your Questions</h1>
+          <h2>Upload your Questions</h2>
 
           <Grid container spacing={2}>
             <Grid item>
@@ -102,12 +141,21 @@ function UploadQuestion() {
           </Grid>
 
           {/* Question and Answer Section */}
-          <Grid container mt={2} spacing={2}>
+
+          {
+            questions.map((obj,index)=>{
+
+              return (
+                <div key={index}>
+                <Grid container mt={2} spacing={2}>
             <Grid item lg={8}>
               <TextField
                 id="outlined-basic"
                 style={{ width: "100%" }}
                 label="Question"
+                onChange={(e)=>updateObj(e,index)}
+                name="Question"
+                index={index}
               />
             </Grid>
 
@@ -117,7 +165,7 @@ function UploadQuestion() {
                 options={InterviewLevelOptions}
                 sx={{ width: 300 }}
                 renderInput={(params) => (
-                  <TextField {...params} label="Interview Level" />
+                  <TextField {...params} label="Interview Level" onChange={(e)=>updateObj(e,index)}  index={index} name="DifficultyLevel"/>
                 )}
               />
             </Grid>
@@ -131,16 +179,30 @@ function UploadQuestion() {
                 label="Answer"
                 multiline
                 rows={4}
+                onClick={(e)=>updateObj(e,index)}
+                name="Answer"
+                index={index}
               />
             </Grid>
+
+          
+           {index===questions.length-1? 
             <Grid item lg={4}>
               <Box>
                 {" "}
-                <Button variant="contained" startIcon={<AddCircleRounded />}>
+                <Button variant="contained" startIcon={<AddCircleRounded />} onClick={updatenewObj}>
                   Add New
                 </Button>
               </Box>
-            </Grid>
+            </Grid> :
+            <Grid item lg={4}>
+              <Box>
+                {" "}
+                <Button variant="contained" startIcon={<AddCircleRounded />} onClick={()=>deleteObj(index)}>
+                  Delete
+                </Button>
+              </Box>
+            </Grid>}
 
             <Grid item justifyContent="center">
               <Box mt={2}>
@@ -148,6 +210,12 @@ function UploadQuestion() {
               </Box>
             </Grid>
           </Grid>
+                </div>
+
+              )
+            })
+          }
+          
 
           {/* { console.log('candidateName',UploadData.CandidateName)} */}
         </Container>

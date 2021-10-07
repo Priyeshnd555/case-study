@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Modal,Button} from "react-bootstrap";
+import { Modal,Button, } from "react-bootstrap";
+
 
 function Modals() {
   const [smShow, setSmShow] = useState(false);
@@ -7,7 +8,7 @@ function Modals() {
 
   return (
     <>
-      <Button onClick={() => setSmShow(true)}>Small modal</Button>{' '}
+      <Button onClick={() => setSmShow(true)}>Button</Button>{' '}
      
       <Modal
         size="sm"
@@ -15,13 +16,17 @@ function Modals() {
         onHide={() => setSmShow(false)}
         aria-labelledby="example-modal-sizes-title-sm"
       >
-        <Modal.Header closeButton>
+       
           <Modal.Title id="example-modal-sizes-title-sm">
-            Small Modal
+            
           </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>...
-          <button>Ok</button>
+      
+        <Modal.Body >
+        
+          <i class="far fa-check-circle" id="icon"></i>
+          
+          <h6 className="button"> Successfully Uploaded</h6>
+          <button className="button1">Ok</button>
         </Modal.Body>
       </Modal>
       
