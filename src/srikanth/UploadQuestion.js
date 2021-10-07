@@ -47,7 +47,7 @@ function UploadQuestion() {
     const objCopy = {...questions[index]}
     objCopy[event.target.name] = event.target.value;
     console.log(`updated objCopy ${index}`,objCopy)
-    setquestions(objCopy)
+   
 
   }
 
