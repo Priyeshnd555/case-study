@@ -60,7 +60,7 @@ function UploadQuestion() {
       DifficultyLevel: "",
     })
     console.log(`new object updated to questions `,objCopys);
-    setquestions(objCopys)
+    
 
 
   }
@@ -101,10 +101,7 @@ function UploadQuestion() {
                 id="outlined-basic"
                 label="Candidate Name"
                 name={UploadData.CandidateName}
-                value={UploadData.CandidateName}
-                onChange={(event) => {
-                  handleChange(event);
-                }}
+                
               />
             </Grid>
             <Grid item>
@@ -122,10 +119,7 @@ function UploadQuestion() {
                 id="outlined-basic"
                 label="Client Name"
                 name={UploadData.ClientName}
-                value={UploadData.ClientName}
-                onChange={(event) => {
-                  handleChange(event);
-                }}
+                
               />
             </Grid>
             <Grid item>
@@ -165,7 +159,7 @@ function UploadQuestion() {
                 options={InterviewLevelOptions}
                 sx={{ width: 300 }}
                 renderInput={(params) => (
-                  <TextField {...params} label="Interview Level" onChange={(e)=>updateObj(e,index)}  index={index} name="DifficultyLevel"/>
+                  <TextField {...params} label="Interview Level"  index={index} name="DifficultyLevel"/>
                 )}
               />
             </Grid>
@@ -179,7 +173,7 @@ function UploadQuestion() {
                 label="Answer"
                 multiline
                 rows={4}
-                onClick={(e)=>updateObj(e,index)}
+               
                 name="Answer"
                 index={index}
               />
