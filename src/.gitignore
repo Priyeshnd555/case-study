@@ -1,0 +1,82 @@
+
+DATA Model - 
+
+1. For Uploading Questions and answers
+
+Request Body : 
+
+{
+	candidateName : '',
+	department : '',
+	clientName : '',
+	technology : '',
+	questions: [
+		{
+			question: '',
+			answer: ''
+			difficultyLevel : ''
+		},
+		{
+			question: '',
+			answer: ''
+			difficultyLevel : ''
+		},
+		{
+			question: '',
+			answer: ''
+			difficultyLevel : ''
+		}
+	]
+}
+
+Response : 
+
+{
+error: false,
+message : 'Saved Successfully',
+data: null
+}
+
+
+
+
+
+
+2. For Search Api 
+
+Request Body :
+
+{
+	technology : '',
+	difficultyLevel : '',
+	fromDate:'',
+	toDate:'',
+	searchText:''
+}
+
+
+Response : 
+
+{
+error: false,
+message : 'Fetch Successfull',
+data: [
+		{
+			question: '',
+			answer: ''
+		},
+		{
+			question: '',
+			answer: ''
+		},
+		{
+			question: '',
+			answer: ''
+		}
+	]
+}
+
+
+Case Study url 
+
+https://xd.adobe.com/view/6e6b883a-455e-49e4-a6c2-9550d74330df-3b38/

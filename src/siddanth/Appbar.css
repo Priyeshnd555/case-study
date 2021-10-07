@@ -1,0 +1,59 @@
+
+
+#image{
+    width: 200px;
+    height: 42px;
+}
+
+#droptech{
+    margin-left: 80px;
+    background-color: white;
+   
+    
+}
+
+
+#droplevel{
+    margin-left: 10px;
+}
+
+#dropdown-basic-button{
+    background-color: white;
+    color: rgb(184, 181, 181);
+    border-color: grey;
+}
+
+#SearchIcon{
+    margin-right: 20px;
+}
+/* 
+.fas{
+    margin-right: 100px;
+} */
+
+.d-flex{
+    width: 480px;
+    margin-left: 5px;
+    height: 45px;
+}
+
+#srchicon{
+    transform: translateX(-40px);
+     /* transform: translateY(-10px); */
+}
+
+.cal{
+    margin-left: 10px;
+    height: 37.5px;
+    border-radius: 5px;
+    border: 1px solid grey;
+
+}
+
+#button{
+    height: 35px;
+    margin-top: 5px;
+    border-radius: 5px;
+    width: 85px;
+    
+}
